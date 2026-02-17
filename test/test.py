@@ -33,7 +33,7 @@ async def test_project(dut):
     # Change it to match the actual expected output of your module:
     assert dut.uo_out.value == max_cnt
     await ClockCycles(dut.clk, 1)
-    assert dut.uio_out.value = 1;
+    assert dut.uio_out.value == 1;
 
     max_cnt = 8
     # Reset
@@ -54,7 +54,7 @@ async def test_project(dut):
     # Change it to match the actual expected output of your module:
     assert dut.uo_out.value == max_cnt
     await ClockCycles(dut.clk, 1)
-    assert dut.uio_out.value = 1;
+    assert dut.uio_out.value == 1;
 
     # Keep testing the module by changing the input values, waiting for
     # one or more clock cycles, and asserting the expected output values.
