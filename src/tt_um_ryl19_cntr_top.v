@@ -27,7 +27,7 @@ assign uio_oe[0:0] = 1'b1;
 
 always @(posedge clk)begin
 	rst_n_1 <= rst_n;
-	rst_n_2 <= rst_n;
+	rst_n_2 <= rst_n_1;
 
 	ena_1 <= ena;
 	ena_2 <= ena_1;
@@ -43,7 +43,7 @@ always @(posedge clk or negedge rst_n_2)begin
 	end
 	else begin
 		if(ena_2) begin
-			if(q < ui_in) begin
+			if(q < limit_2) begin
 				q <= q + 1;
 				done <= 1'b0;
 			end
