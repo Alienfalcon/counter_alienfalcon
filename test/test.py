@@ -32,10 +32,10 @@ async def test_project(dut):
     # The following assersion is just an example of how to check the output values.
     # Change it to match the actual expected output of your module:
     print(dut.uo_out.value)
-    assert dut.uo_out.value == max_cnt
+    assert dut.uo_out.value == dut.ui_in.value
     await ClockCycles(dut.clk, 1)
     print(dut.uio_out.value)
-    assert dut.uio_out.value == 1;
+    assert dut.uio_out.value == dut.ena.value;
     
 
     max_cnt = 8
@@ -51,15 +51,15 @@ async def test_project(dut):
 
     
     # Wait for one clock cycle to see the output values
-    await ClockCycles(dut.clk, max_cnt+1)
+    await ClockCycles(dut.clk, dut.ui_in.value+1)
 
     # The following assersion is just an example of how to check the output values.
     # Change it to match the actual expected output of your module:
-    assert dut.uo_out.value == max_cnt
+    assert dut.uo_out.value == dut.ui_in.value
     print(dut.uo_out.value)
     await ClockCycles(dut.clk, 1)
     print(dut.uio_out.value)
-    assert dut.uio_out.value == 1;
+    assert dut.uio_out.value == dut.ena.value;
 
     # Keep testing the module by changing the input values, waiting for
     # one or more clock cycles, and asserting the expected output values.
